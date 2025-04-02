@@ -58,7 +58,7 @@ export default function (data: TriangleData[], vertexSize: number): ObjectData {
         vertexSize,
       },
     },
-    verticesCount: triangles.length * vertexSize,
+    verticesCount: triangles.length / vertexSize,
     position: data[0].position,
     rotation: data[0].rotation,
   };
