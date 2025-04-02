@@ -12,32 +12,19 @@ type TriangleData = {
 function translate(data: number[]): number[] {
   const matrix = Matrix4.translate(Matrix4.xRotation(Math.PI), -50, -75, -15);
 
-  for (var ii = 0; ii < data.length; ii += 3) {
-    var vector = Matrix4.transformVector(matrix, [
-      data[ii + 0],
-      data[ii + 1],
-      data[ii + 2],
+  for (let index = 0; index < data.length; index += 3) {
+    const vector = Matrix4.transformVector(matrix, [
+      data[index + 0],
+      data[index + 1],
+      data[index + 2],
       1,
     ]);
-    data[ii + 0] = vector[0];
-    data[ii + 1] = vector[1];
-    data[ii + 2] = vector[2];
+    data[index + 0] = vector[0];
+    data[index + 1] = vector[1];
+    data[index + 2] = vector[2];
   }
 
   return data;
-}
-
-function getTranslatedMatrix(
-  matrix: number[],
-  position: Position,
-  rotation: Rotation
-) {
-  matrix = Matrix4.translate(matrix, position[0], position[1], position[2]);
-  matrix = Matrix4.xRotate(matrix, degToRad(rotation.y));
-  matrix = Matrix4.yRotate(matrix, degToRad(rotation.x));
-  matrix = Matrix4.zRotate(matrix, degToRad(rotation.z));
-
-  return matrix;
 }
 
 export default function (data: TriangleData[], vertexSize: number): ObjectData {
@@ -60,26 +47,6 @@ export default function (data: TriangleData[], vertexSize: number): ObjectData {
     [[], []] as [number[], number[]]
   );
 
-  // engine.renderTriangles(
-  //   {
-  //     a_color: {
-  //       vertices: colors,
-  //       vertexSize: 4,
-  //     },
-  //     a_position: {
-  //       vertices: translate(triangles),
-  //       vertexSize,
-  //     },
-  //   },
-  //   triangles.length * vertexSize,
-  //   vertexShaderSource,
-  //   fragmentShaderSource,
-  //   getTranslatedMatrix(
-  //     viewProjectionMatrix,
-  //     data[0].position,
-  //     data[0].rotation
-  //   )
-  // );
   return {
     attributesData: {
       a_color: {
