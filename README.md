@@ -52,3 +52,11 @@ yarn build
 ```sh
 nix-shell env.nix
 ```
+
+---
+
+---
+
+# documentation
+
+- [`WebGL Fundamentals`](https://webgl2fundamentals.org/)
