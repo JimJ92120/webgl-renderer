@@ -1,6 +1,6 @@
 import { ColorRGBA, Position, Rotation } from "../../type";
 import { ObjectData } from "../../index";
-import { Matrix4, degToRad } from "../../../maths";
+import { Matrix4 } from "../../../maths";
 
 type TriangleData = {
   position: Position;
